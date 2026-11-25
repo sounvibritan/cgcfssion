@@ -167,7 +167,7 @@
             <div class="pt-5 border-t border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                 <div class="flex flex-wrap items-center gap-4 sm:gap-5 font-mono text-xs text-neutral-400">
                     <div>
-                        <span class="text-white font-bold text-sm">15</span> ПЕРСОН <span class="text-neutral-500">+ ЗАКРЕП</span>
+                        <span class="text-white font-bold text-sm">16</span> ПЕРСОН <span class="text-neutral-500">+ ЗАКРЕП</span>
                     </div>
                     <span class="text-neutral-700">•</span>
                     <div>
@@ -195,7 +195,7 @@
             </div>
         </section>
 
-        <!-- СПИСОК 15 КАРТОЧЕК ПЕРСОН -->
+        <!-- СПИСОК 16 КАРТОЧЕК ПЕРСОН -->
         <section aria-label="Крутые персоны КФ">
             <div id="personsList" class="space-y-6">
                 <!-- Карточки рендерятся динамически -->
@@ -297,7 +297,7 @@
         };
 
         /**
-         * Все 15 персон КФ по строгому порядку с персональными баннерами 16:9
+         * Все 16 персон КФ по строгому порядку с персональными баннерами 16:9
          */
         const PERSONS_DATA = [
             {
@@ -449,6 +449,16 @@
                 badge: 'Эдитор',
                 bannerUrl: 'https://i.ibb.co/V0y3h6kN/63-20261125231858.png',
                 description: 'Прям оч крутые эдиты делаешь, сладость наша!'
+            },
+            {
+                docId: 'p_16',
+                number: '16',
+                name: 'Кио',
+                handle: '@blutste1n',
+                tgUrl: 'https://t.me/blutste1n',
+                badge: 'Художник',
+                bannerUrl: 'https://i.ibb.co/ynLSygJ3/63-20261126003938.png',
+                description: 'ну милашность, очень красивые арты, ну прям очень!! любимость'
             }
         ];
 
@@ -670,7 +680,7 @@
         }
 
         /**
-         * Генерация HTML одной карточки (поддерживает и закреп без номера, и обычные #01-#15)
+         * Генерация HTML одной карточки (поддерживает и закреп без номера, и обычные #01-#16)
          */
         function buildPersonCardHTML(person, idx = 0) {
             const likesCount = state.likes[person.docId] || 0;
@@ -841,7 +851,7 @@
         }
 
         /**
-         * Отрисовка закрепа и всех 15 карточек персон
+         * Отрисовка закрепа и всех 16 карточек персон
          */
         function renderPersons() {
             captureFormDrafts();
