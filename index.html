@@ -1,0 +1,1068 @@
+<!DOCTYPE html>
+<html lang="ru" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ЛУЧШИЙ КФ ПО КОДУ ГИАСС | codegeassconf.t.me</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts: Inter и JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Inter"', 'system-ui', 'sans-serif'],
+                        mono: ['"JetBrains Mono"', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Строгая чёрно-белая палитра без лишнего визуального шума на фоне */
+        :root {
+            color-scheme: dark;
+        }
+
+        body {
+            background-color: #09090b;
+            color: #ffffff;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Минималистичный монохромный скроллбар */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #09090b;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #27272a;
+            border-radius: 9999px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #52525b;
+        }
+
+        /* Анимация всплывающего +1 при клике на Крутость */
+        @keyframes floatUp {
+            0% {
+                opacity: 1;
+                transform: translate(-50%, 0) scale(0.95);
+            }
+            100% {
+                opacity: 0;
+                transform: translate(-50%, -28px) scale(1.05);
+            }
+        }
+
+        .float-plus {
+            animation: floatUp 0.75s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            pointer-events: none;
+        }
+
+        /* Плавное появление карточек */
+        @keyframes fadeSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(12px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .person-card {
+            animation: fadeSlideIn 0.4s ease-out both;
+            transition: border-color 0.25s ease, background-color 0.25s ease;
+        }
+
+        .person-card:hover {
+            border-color: rgba(255, 255, 255, 0.32);
+            background-color: #141417;
+        }
+
+        ::selection {
+            background: #ffffff;
+            color: #09090b;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col antialiased selection:bg-white selection:text-black">
+
+    <!-- ВЕРХНЯЯ НАВИГАЦИОННАЯ ПАНЕЛЬ -->
+    <header class="sticky top-0 z-40 bg-[#09090b]/90 backdrop-blur-md border-b border-white/15">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-3">
+            <a href="#top" class="flex items-center gap-3 group min-w-0">
+                <span class="w-8 h-8 rounded-xl border border-white/20 bg-[#111113] flex items-center justify-center font-mono text-xs font-bold tracking-tighter group-hover:bg-white group-hover:text-black transition-colors shrink-0">
+                    CG
+                </span>
+                <span class="text-sm sm:text-base font-bold tracking-tight uppercase truncate">
+                    ЛУЧШИЙ КФ ПО КОДУ ГИАСС
+                </span>
+            </a>
+
+            <a href="https://t.me/codegeassconf" target="_blank" rel="noopener noreferrer"
+               class="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl border border-white/20 bg-[#111113] hover:bg-white hover:text-black text-xs font-mono transition-all shrink-0">
+                <i class="fa-brands fa-telegram text-sm"></i>
+                <span>codegeassconf.t.me</span>
+                <i class="fa-solid fa-arrow-up-right-from-square text-[10px] opacity-70"></i>
+            </a>
+        </div>
+    </header>
+
+    <!-- ОСНОВНОЙ КОНТЕНТ -->
+    <main id="top" class="flex-1 max-w-4xl w-full mx-auto px-4 sm:px-6 pt-8 sm:pt-12 pb-16">
+
+        <!-- HERO-БЛОК -->
+        <section class="rounded-2xl border border-white/15 bg-[#111113] p-6 sm:p-9 mb-8 relative overflow-hidden">
+            <div class="flex flex-wrap items-center gap-2.5 mb-5">
+                <a href="https://t.me/codegeassconf" target="_blank" rel="noopener noreferrer"
+                   class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white text-black font-mono text-[11px] font-bold hover:bg-neutral-200 transition-colors">
+                    <i class="fa-brands fa-telegram"></i>
+                    <span>codegeassconf.t.me</span>
+                </a>
+
+                <!-- Живой индикатор подключения к облачной базе Firebase -->
+                <span id="syncStatusBadge" class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/15 bg-[#09090b] font-mono text-[11px] text-neutral-300">
+                    <span id="syncStatusDot" class="w-2 h-2 rounded-full bg-neutral-400 animate-pulse"></span>
+                    <span id="syncStatusText">Подключение к облаку...</span>
+                </span>
+            </div>
+
+            <h1 class="text-2xl sm:text-4xl md:text-5xl font-extrabold tracking-tight uppercase leading-[1.1] mb-4">
+                ЛУЧШИЙ КФ ПО КОДУ ГИАСС
+            </h1>
+
+            <p class="text-neutral-300 text-sm sm:text-base leading-relaxed max-w-3xl mb-6">
+                <a href="https://t.me/codegeassconf" target="_blank" rel="noopener noreferrer" class="text-white font-semibold underline decoration-white/30 underline-offset-4 hover:decoration-white">codegeassconf.t.me</a> — самый лучший, живой и активный конфешн по вселенной <em>Code Geass</em>. Здесь каждый день кипит жизнь, выходят потрясающие эдиты, арты и пикчи, а в чатике собрались самые крутые и душевные люди. Ниже — наш зал легенд, где можно поставить «Крутость» и оставить своё мнение, которое сразу увидят все!
+            </p>
+
+            <!-- Глобальные счётчики сообщества и поиск -->
+            <div class="pt-5 border-t border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                <div class="flex flex-wrap items-center gap-4 sm:gap-5 font-mono text-xs text-neutral-400">
+                    <div>
+                        <span class="text-white font-bold text-sm">15</span> ПЕРСОН
+                    </div>
+                    <span class="text-neutral-700">•</span>
+                    <div>
+                        <span class="text-white font-bold text-sm" id="totalLikesCount">0</span> КРУТОСТИ
+                    </div>
+                    <span class="text-neutral-700">•</span>
+                    <div>
+                        <span class="text-white font-bold text-sm" id="totalOpinionsCount">0</span> МНЕНИЙ
+                    </div>
+                </div>
+
+                <!-- Поиск по имени или юзернейму -->
+                <div class="relative w-full sm:w-64">
+                    <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-neutral-500 text-xs"></i>
+                    <input type="text" id="searchInput" placeholder="Найти персону или @ник..."
+                           class="w-full bg-[#09090b] border border-white/15 focus:border-white rounded-xl pl-9 pr-4 py-2 text-xs sm:text-sm text-white placeholder-neutral-500 outline-none transition-colors">
+                </div>
+            </div>
+        </section>
+
+        <!-- СПИСОК 15 КАРТОЧЕК ПЕРСОН -->
+        <section aria-label="Крутые персоны КФ">
+            <div id="personsList" class="space-y-6">
+                <!-- Карточки рендерятся динамически -->
+            </div>
+
+            <!-- Пустой результат поиска -->
+            <div id="emptySearchState" class="hidden rounded-2xl border border-white/15 bg-[#111113] p-10 text-center">
+                <p class="font-mono text-xs sm:text-sm text-neutral-400 mb-3">По этому запросу никого не нашлось.</p>
+                <button id="resetSearchBtn" type="button" class="px-4 py-2 rounded-xl border border-white/20 text-xs font-mono hover:bg-white hover:text-black transition-colors">
+                    Сбросить поиск
+                </button>
+            </div>
+        </section>
+
+        <!-- ЗАВЕРШАЮЩИЙ БЛОК ОТ СОУНА -->
+        <section class="mt-12 rounded-2xl border border-white/15 bg-[#111113] p-8 sm:p-10 text-center">
+            <div class="max-w-lg mx-auto">
+                <div class="inline-flex items-center justify-center w-10 h-10 rounded-full border border-white/20 bg-[#09090b] mb-4 text-white">
+                    <i class="fa-solid fa-crown text-sm"></i>
+                </div>
+                <p class="text-xl sm:text-2xl md:text-3xl font-bold text-white leading-snug mb-3">
+                    «извините, если не нашел всех, но вы все крутые!»
+                </p>
+                <div class="w-14 h-[1px] bg-white/20 mx-auto my-4"></div>
+                <p class="font-mono text-xs sm:text-sm tracking-wider text-neutral-300">
+                    от соуна крутого оч
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <!-- ФУТЕР С ВОДЯНЫМ ЗНАКОМ -->
+    <footer class="border-t border-white/10 bg-[#09090b] py-7 px-4">
+        <div class="max-w-4xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-neutral-500">
+            <div class="flex items-center gap-2">
+                <span>CODE GEASS CONFESSION</span>
+                <span>•</span>
+                <a href="https://t.me/codegeassconf" target="_blank" rel="noopener noreferrer" class="text-neutral-300 hover:text-white transition-colors">
+                    codegeassconf.t.me
+                </a>
+            </div>
+
+            <!-- Кликабельный водяной знак -->
+            <a href="https://t.me/mikamisoun" target="_blank" rel="noopener noreferrer"
+               class="inline-flex items-center gap-2 px-4 py-2 rounded-xl border border-white/15 bg-[#111113] text-neutral-200 hover:bg-white hover:text-black hover:border-white transition-all">
+                <span>made by mikamisoun.t.me</span>
+                <i class="fa-brands fa-telegram"></i>
+            </a>
+        </div>
+    </footer>
+
+    <!-- ВСПЛЫВАЮЩЕЕ УВЕДОМЛЕНИЕ (TOAST) -->
+    <div id="toast" class="fixed bottom-5 right-5 z-50 translate-y-20 opacity-0 transition-all duration-300 pointer-events-none">
+        <div class="px-4 py-3 rounded-xl border border-white/25 bg-[#111113] text-white font-mono text-xs shadow-2xl flex items-center gap-2.5">
+            <i id="toastIcon" class="fa-solid fa-check text-white"></i>
+            <span id="toastText">Сохранено в облаке</span>
+        </div>
+    </div>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
+        import { getAuth, signInAnonymously } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js";
+        import {
+            getFirestore,
+            doc,
+            setDoc,
+            addDoc,
+            updateDoc,
+            onSnapshot,
+            collection,
+            increment
+        } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-firestore.js";
+
+        /**
+         * Официальная конфигурация проекта Firebase (cgcfssion) для работы на GitHub Pages
+         */
+        const firebaseConfig = {
+            apiKey: "AIzaSyBj6Aut301V5WdGjC8yFehjRCShTxHFEH8",
+            authDomain: "cgcfssion.firebaseapp.com",
+            projectId: "cgcfssion",
+            storageBucket: "cgcfssion.firebasestorage.app",
+            messagingSenderId: "1003363782521",
+            appId: "1:1003363782521:web:efb5928e8c827b86cba9a8"
+        };
+
+        /**
+         * Все 15 персон КФ по строгому порядку с персональными баннерами 16:9
+         */
+        const PERSONS_DATA = [
+            {
+                docId: 'p_1',
+                number: '01',
+                name: 'Владелец коматсу',
+                handle: '@bemydog',
+                tgUrl: 'https://t.me/bemydog',
+                badge: 'Создатель КФ',
+                bannerUrl: 'https://i.ibb.co/j9YZqtZK/63-20261125231249.png',
+                description: 'Огромная благодарность за создание и развитие кф, за всё, что он сделал — он очень крутой!'
+            },
+            {
+                docId: 'p_2',
+                number: '02',
+                name: 'Вишоня',
+                handle: '@irllelouchkisses',
+                tgUrl: 'https://t.me/irllelouchkisses',
+                badge: 'Эдитор',
+                bannerUrl: 'https://i.ibb.co/LXnrJXxL/4bea4e3cea62fe593531aeeacb69d941.jpg',
+                description: 'Очень интересные и красивые эдиты по коду гиасс, прям приятно смотреть 💕, очень хороший человек в чатике.'
+            },
+            {
+                docId: 'p_3',
+                number: '03',
+                name: 'Миори',
+                handle: '@miogodri777',
+                tgUrl: 'https://t.me/miogodri777',
+                badge: 'Эдитор • Канамэ киссер',
+                bannerUrl: 'https://i.ibb.co/HLY6jVLX/63-20261125231145.png',
+                description: 'Очень крутая, красивые эдиты по коду гиасс — просто рай для глазок, тру канамэ киссер и интересный человек в чатике.'
+            },
+            {
+                docId: 'p_4',
+                number: '04',
+                name: 'лейтенант',
+                handle: null,
+                tgUrl: null,
+                badge: 'без @ • Художник',
+                bannerUrl: 'https://i.ibb.co/xqGM8RpX/63-20261125231207.png',
+                description: 'Очень красиво рисует, молодец и вообще крутой, хоть ситуация и неизвестна, всё равно лавки.'
+            },
+            {
+                docId: 'p_5',
+                number: '05',
+                name: 'бобовая',
+                handle: '@shuutsukiyamakisser',
+                tgUrl: 'https://t.me/shuutsukiyamakisser',
+                badge: 'Эдитор',
+                bannerUrl: 'https://i.ibb.co/whb4kJ0w/63-20261125230905.png',
+                description: 'Продолжай делать крутые эдиты, ты прям сладость вкусность делаешь!!'
+            },
+            {
+                docId: 'p_6',
+                number: '06',
+                name: 'лу маньяк',
+                handle: '@lumaniac',
+                tgUrl: 'https://t.me/lumaniac',
+                badge: 'Художник',
+                bannerUrl: 'https://i.ibb.co/S4rDc2vh/63-20261125231259.png',
+                description: 'Очень крутой художник, тебя все любят, прям милашечка в чатике :3'
+            },
+            {
+                docId: 'p_7',
+                number: '07',
+                name: 'табрет',
+                handle: '@taburetqwart',
+                tgUrl: 'https://t.me/taburetqwart',
+                badge: 'Художник',
+                bannerUrl: 'https://i.ibb.co/2JXBgNp/63-20261125231152.png',
+                description: 'Очень красиво рисуешь, ну прям очень красиво, продолжай в том же духе!'
+            },
+            {
+                docId: 'p_8',
+                number: '08',
+                name: 'райли',
+                handle: '@rauliww',
+                tgUrl: 'https://t.me/rauliww',
+                badge: 'Художник',
+                bannerUrl: 'https://i.ibb.co/FLXdjTtd/63-20261125231347.png',
+                description: 'Солнышко наше, очень красиво рисуешь! сладость а не арты, всё очень круто, ты крутая.'
+            },
+            {
+                docId: 'p_9',
+                number: '09',
+                name: 'касета',
+                handle: '@KasetaXD',
+                tgUrl: 'https://t.me/KasetaXD',
+                badge: 'Пикчер',
+                bannerUrl: 'https://i.ibb.co/WNc6bN55/63-20261125230844.png',
+                description: 'Крутые пички, это очень круто, ну ты крутой оччч.'
+            },
+            {
+                docId: 'p_10',
+                number: '10',
+                name: 'Денвер',
+                handle: '@dnverl2',
+                tgUrl: 'https://t.me/dnverl2',
+                badge: 'Легенда чата',
+                bannerUrl: 'https://i.ibb.co/SDYwTmGX/63-20261125230915.png',
+                description: 'Просто крутой чел в чате, ну он крутой 💪'
+            },
+            {
+                docId: 'p_11',
+                number: '11',
+                name: 'лим',
+                handle: '@lim_s00',
+                tgUrl: 'https://t.me/lim_s00',
+                badge: 'Чатик',
+                bannerUrl: 'https://i.ibb.co/YB3v7Mgt/63-20261125231159.png',
+                description: 'Очень крутой приятный чел в чатике, ну просто шикк.'
+            },
+            {
+                docId: 'p_12',
+                number: '12',
+                name: 'мирель',
+                handle: '@shionirlest',
+                tgUrl: 'https://t.me/shionirlest',
+                badge: 'Админ',
+                bannerUrl: 'https://i.ibb.co/RGsVnY7x/63-20261125231354.png',
+                description: 'Тоже крутая, аниме девочка крутость любивость админ.'
+            },
+            {
+                docId: 'p_13',
+                number: '13',
+                name: 'алексюня',
+                handle: '@alexsynya3_3',
+                tgUrl: 'https://t.me/alexsynya3_3',
+                badge: 'Эдитор',
+                bannerUrl: 'https://i.ibb.co/Gv59KNZS/63-20261125230834.png',
+                description: 'Крутые и приятные эдиты! ну ты милашность кайф.'
+            },
+            {
+                docId: 'p_14',
+                number: '14',
+                name: 'томосане',
+                handle: '@temporaryhearty',
+                tgUrl: 'https://t.me/temporaryhearty',
+                badge: 'Мега админ',
+                bannerUrl: 'https://i.ibb.co/LdzkhKgw/63-20261125231905.png',
+                description: 'МЕГА крутой админ в чатике, прям шикарно, прям ну кайф.'
+            },
+            {
+                docId: 'p_15',
+                number: '15',
+                name: 'сае',
+                handle: '@saestupid',
+                tgUrl: 'https://t.me/saestupid',
+                badge: 'Эдитор',
+                bannerUrl: 'https://i.ibb.co/V0y3h6kN/63-20261125231858.png',
+                description: 'Прям оч крутые эдиты делаешь, сладость наша!'
+            }
+        ];
+
+        // Ключи localStorage исключительно для флага анти-спама лайков на одном устройстве
+        const STORAGE_LIKED_PERSONAS = 'cgcfssion_liked_personas_v1';
+        const STORAGE_LIKED_OPINIONS = 'cgcfssion_liked_opinions_v1';
+
+        function readFlagMap(key) {
+            try {
+                const raw = localStorage.getItem(key);
+                return raw ? JSON.parse(raw) : {};
+            } catch {
+                return {};
+            }
+        }
+
+        function saveFlagMap(key, mapObj) {
+            try {
+                localStorage.setItem(key, JSON.stringify(mapObj));
+            } catch {
+                // Игнорируем ограничения приватного режима браузера
+            }
+        }
+
+        // Состояние приложения
+        const state = {
+            likes: {},                                        // { [docId]: number } из Firestore
+            likedPersonas: readFlagMap(STORAGE_LIKED_PERSONAS), // защита от повторного спама лайками на 1 устройстве
+            likedOpinions: readFlagMap(STORAGE_LIKED_OPINIONS), // защита от спама лайками мнений
+            opinions: {},                                     // { [docId]: Array<{ id, author, text, createdAt, likes }> }
+            openForms: {},                                    // { [docId]: boolean }
+            draftAuthors: {},
+            draftTexts: {},
+            searchQuery: '',
+            isSyncing: true
+        };
+
+        PERSONS_DATA.forEach(p => {
+            state.likes[p.docId] = 0;
+            state.opinions[p.docId] = [];
+            state.openForms[p.docId] = false;
+            state.draftAuthors[p.docId] = '';
+            state.draftTexts[p.docId] = '';
+        });
+
+        let db = null;
+        let auth = null;
+        let currentUser = null;
+
+        /**
+         * Обновление индикатора подключения к облачной базе Firebase
+         */
+        function setSyncStatus(status, text) {
+            const dot = document.getElementById('syncStatusDot');
+            const label = document.getElementById('syncStatusText');
+            if (!dot || !label) return;
+
+            label.textContent = text;
+            dot.classList.remove('bg-white', 'bg-neutral-400', 'bg-neutral-600', 'animate-pulse');
+
+            if (status === 'online') {
+                dot.classList.add('bg-white');
+            } else if (status === 'loading') {
+                dot.classList.add('bg-neutral-400', 'animate-pulse');
+            } else {
+                dot.classList.add('bg-neutral-600');
+            }
+        }
+
+        /**
+         * Безопасное экранирование текста (защита от XSS)
+         */
+        function escapeHTML(str) {
+            const div = document.createElement('div');
+            div.textContent = String(str ?? '');
+            return div.innerHTML;
+        }
+
+        /**
+         * Форматирование времени публикации мнения
+         */
+        function formatDate(timestamp) {
+            if (!timestamp) return 'только что';
+            try {
+                const ms = typeof timestamp?.toMillis === 'function' ? timestamp.toMillis() : Number(timestamp);
+                if (!ms || Number.isNaN(ms)) return 'только что';
+                const date = new Date(ms);
+                return date.toLocaleString('ru-RU', {
+                    day: '2-digit',
+                    month: 'short',
+                    hour: '2-digit',
+                    minute: '2-digit'
+                });
+            } catch {
+                return 'только что';
+            }
+        }
+
+        /**
+         * Обновление глобальных счётчиков в шапке
+         */
+        function updateGlobalCounters() {
+            const totalLikes = Object.values(state.likes).reduce((sum, val) => sum + (Number(val) || 0), 0);
+            const totalOpinions = Object.values(state.opinions).reduce((sum, arr) => sum + (Array.isArray(arr) ? arr.length : 0), 0);
+
+            const likesEl = document.getElementById('totalLikesCount');
+            const opinionsEl = document.getElementById('totalOpinionsCount');
+            if (likesEl) likesEl.textContent = totalLikes;
+            if (opinionsEl) opinionsEl.textContent = totalOpinions;
+        }
+
+        /**
+         * Всплывающее уведомление (Toast)
+         */
+        let toastTimer = null;
+        function showToast(message, isError = false) {
+            const toast = document.getElementById('toast');
+            const toastText = document.getElementById('toastText');
+            const toastIcon = document.getElementById('toastIcon');
+            if (!toast || !toastText) return;
+
+            toastText.textContent = message;
+            if (toastIcon) {
+                toastIcon.className = isError
+                    ? 'fa-solid fa-triangle-exclamation text-white'
+                    : 'fa-solid fa-check text-white';
+            }
+
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            toast.classList.add('translate-y-0', 'opacity-100');
+
+            clearTimeout(toastTimer);
+            toastTimer = setTimeout(() => {
+                toast.classList.add('translate-y-20', 'opacity-0');
+                toast.classList.remove('translate-y-0', 'opacity-100');
+            }, 2600);
+        }
+
+        /**
+         * Сохранение черновиков открытых форм перед обновлением DOM
+         */
+        function captureFormDrafts() {
+            PERSONS_DATA.forEach(p => {
+                const aInput = document.getElementById(`author-input-${p.docId}`);
+                const tInput = document.getElementById(`text-input-${p.docId}`);
+                if (aInput) state.draftAuthors[p.docId] = aInput.value;
+                if (tInput) state.draftTexts[p.docId] = tInput.value;
+            });
+        }
+
+        /**
+         * Рендер ленты мнений для конкретной персоны (с лайками на мнениях)
+         */
+        function renderOpinionsListHTML(docId) {
+            if (state.isSyncing) {
+                return `
+                    <div class="rounded-xl border border-white/10 bg-[#09090b] px-4 py-3 text-xs font-mono text-neutral-500 animate-pulse">
+                        Загрузка мнений из сети...
+                    </div>
+                `;
+            }
+
+            const list = state.opinions[docId] || [];
+
+            if (list.length === 0) {
+                return `
+                    <div class="rounded-xl border border-white/10 bg-[#09090b] px-4 py-3 text-xs font-mono text-neutral-500 flex items-center justify-between">
+                        <span>Мнений пока нет — стань первым, кто напишет!</span>
+                        <span>0</span>
+                    </div>
+                `;
+            }
+
+            const itemsHTML = list.map(item => {
+                const isOpLiked = Boolean(state.likedOpinions[item.id]);
+                const opLikes = Number(item.likes) || 0;
+                const opLikeStyle = isOpLiked
+                    ? 'border-white bg-white text-black'
+                    : 'border-white/15 bg-[#111113] text-neutral-300 hover:border-white/40 hover:text-white';
+
+                return `
+                    <div class="rounded-xl border border-white/10 bg-[#09090b] p-3.5 sm:p-4">
+                        <div class="flex items-center justify-between gap-2 mb-1.5">
+                            <div class="flex items-center gap-2 min-w-0">
+                                <span class="w-5 h-5 rounded-md bg-white text-black font-mono text-[10px] font-bold flex items-center justify-center shrink-0">
+                                    ${escapeHTML((item.author || 'А')[0].toUpperCase())}
+                                </span>
+                                <span class="font-mono text-xs font-semibold text-white truncate">
+                                    ${escapeHTML(item.author || 'Аноним')}
+                                </span>
+                            </div>
+                            <div class="flex items-center gap-2 shrink-0">
+                                <span class="font-mono text-[10px] text-neutral-500">
+                                    ${escapeHTML(formatDate(item.createdAt))}
+                                </span>
+                                <button type="button"
+                                        onclick="handleOpinionLike('${item.id}')"
+                                        title="${isOpLiked ? 'Вы уже поддержали это мнение' : 'Поддержать мнение'}"
+                                        class="inline-flex items-center gap-1 px-2 py-0.5 rounded-lg border ${opLikeStyle} font-mono text-[10px] transition-colors">
+                                    <i class="fa-solid fa-heart text-[9px]"></i>
+                                    <span>${opLikes}</span>
+                                </button>
+                            </div>
+                        </div>
+                        <p class="text-xs sm:text-sm text-neutral-300 leading-relaxed whitespace-pre-line break-words">
+                            ${escapeHTML(item.text)}
+                        </p>
+                    </div>
+                `;
+            }).join('');
+
+            return `
+                <div class="space-y-2.5 max-h-80 overflow-y-auto pr-1">
+                    ${itemsHTML}
+                </div>
+            `;
+        }
+
+        /**
+         * Отрисовка всех 15 карточек персон
+         */
+        function renderPersons() {
+            captureFormDrafts();
+
+            const container = document.getElementById('personsList');
+            const emptyState = document.getElementById('emptySearchState');
+            const query = state.searchQuery.trim().toLowerCase();
+
+            const filtered = PERSONS_DATA.filter(person => {
+                if (!query) return true;
+                const inName = person.name.toLowerCase().includes(query);
+                const inHandle = person.handle ? person.handle.toLowerCase().includes(query) : false;
+                const inDesc = person.description.toLowerCase().includes(query);
+                return inName || inHandle || inDesc;
+            });
+
+            if (filtered.length === 0) {
+                container.innerHTML = '';
+                emptyState.classList.remove('hidden');
+                return;
+            }
+
+            emptyState.classList.add('hidden');
+
+            container.innerHTML = filtered.map((person, idx) => {
+                const likesCount = state.likes[person.docId] || 0;
+                const isLiked = Boolean(state.likedPersonas[person.docId]);
+                const opinionsCount = (state.opinions[person.docId] || []).length;
+                const isFormOpen = Boolean(state.openForms[person.docId]);
+
+                const handleBadge = person.handle
+                    ? `<a href="${person.tgUrl}" target="_blank" rel="noopener noreferrer"
+                          class="inline-flex items-center gap-1.5 px-3 py-1 rounded-xl border border-white/20 bg-[#09090b] hover:bg-white hover:text-black font-mono text-xs text-neutral-200 transition-colors">
+                           <span>${escapeHTML(person.handle)}</span>
+                           <i class="fa-solid fa-arrow-up-right-from-square text-[9px] opacity-70"></i>
+                       </a>`
+                    : `<span class="inline-flex items-center px-3 py-1 rounded-xl border border-white/15 bg-[#09090b] font-mono text-xs text-neutral-300">
+                           ${escapeHTML(person.badge)}
+                       </span>`;
+
+                const subBadge = person.handle
+                    ? `<span class="px-2 py-0.5 rounded-md border border-white/15 bg-[#09090b] font-mono text-[10px] uppercase tracking-wider text-neutral-400">
+                           ${escapeHTML(person.badge)}
+                       </span>`
+                    : '';
+
+                const likeBtnClasses = isLiked
+                    ? 'border-white bg-white text-black'
+                    : 'border-white/20 bg-[#09090b] text-white hover:bg-white hover:text-black';
+
+                const likeBadgeClasses = isLiked
+                    ? 'bg-black/15 text-black'
+                    : 'bg-white/10 group-hover:bg-black/15';
+
+                return `
+                    <article class="person-card rounded-2xl border border-white/15 bg-[#111113] p-5 sm:p-7"
+                             style="animation-delay: ${Math.min(idx * 30, 300)}ms"
+                             data-person-card="${person.docId}">
+
+                        <!-- Шапка карточки: #01-#15, имя, роль и ссылка на Telegram -->
+                        <div class="flex flex-wrap items-start justify-between gap-3 mb-4">
+                            <div class="flex items-center gap-3 min-w-0">
+                                <span class="w-10 h-10 rounded-xl border border-white/20 bg-[#09090b] flex items-center justify-center font-mono text-xs sm:text-sm font-bold text-white shrink-0">
+                                    #${person.number}
+                                </span>
+                                <div class="min-w-0">
+                                    <div class="flex flex-wrap items-center gap-2">
+                                        <h2 class="text-xl sm:text-2xl font-bold text-white leading-tight">
+                                            ${escapeHTML(person.name)}
+                                        </h2>
+                                        ${subBadge}
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="shrink-0">
+                                ${handleBadge}
+                            </div>
+                        </div>
+
+                        <!-- Персональный баннер 16:9 -->
+                        <div class="aspect-video w-full rounded-xl overflow-hidden border border-white/15 mb-5 bg-[#09090b]">
+                            <img src="${escapeHTML(person.bannerUrl)}"
+                                 alt="Баннер — ${escapeHTML(person.name)}"
+                                 loading="lazy"
+                                 class="w-full h-full object-cover object-center transition-transform duration-500 hover:scale-[1.015]"
+                                 onerror="this.parentElement.innerHTML='<div class=\\'w-full h-full flex items-center justify-center font-mono text-xs text-neutral-500\\'>БАННЕР #${person.number}</div>'">
+                        </div>
+
+                        <!-- Описание персоны -->
+                        <p class="text-neutral-200 text-sm sm:text-base leading-relaxed mb-6">
+                            ${escapeHTML(person.description)}
+                        </p>
+
+                        <!-- Кнопки действий: Крутость и Оставить мнение -->
+                        <div class="flex flex-wrap items-center justify-between gap-3 pt-4 border-t border-white/10 mb-4">
+                            <div class="relative">
+                                <button type="button"
+                                        onclick="handleLike('${person.docId}', this)"
+                                        class="group inline-flex items-center gap-2.5 px-4 py-2.5 rounded-xl border ${likeBtnClasses} active:scale-95 text-xs sm:text-sm font-mono font-medium transition-all select-none">
+                                    <i class="fa-solid fa-heart"></i>
+                                    <span>${isLiked ? 'Крутость отмечена' : 'Крутость'}</span>
+                                    <span id="like-count-${person.docId}" class="px-2 py-0.5 rounded-md ${likeBadgeClasses} font-bold">
+                                        ${state.isSyncing ? '...' : likesCount}
+                                    </span>
+                                </button>
+                            </div>
+
+                            <button type="button"
+                                    onclick="toggleInlineOpinionForm('${person.docId}')"
+                                    class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white text-black hover:bg-neutral-200 active:scale-95 text-xs sm:text-sm font-mono font-semibold transition-all">
+                                <i class="fa-regular ${isFormOpen ? 'fa-circle-xmark' : 'fa-comment-dots'}"></i>
+                                <span>${isFormOpen ? 'Скрыть форму' : 'Оставить мнение'}</span>
+                            </button>
+                        </div>
+
+                        <!-- Встроенная форма отправки мнения -->
+                        <div id="inline-form-wrap-${person.docId}" class="${isFormOpen ? 'block' : 'hidden'} mb-5 rounded-xl border border-white/20 bg-[#09090b] p-4">
+                            <form onsubmit="submitInlineOpinion(event, '${person.docId}')" class="space-y-3">
+                                <div class="font-mono text-[11px] uppercase tracking-wider text-neutral-400">
+                                    Новое мнение для ${escapeHTML(person.name)}
+                                </div>
+                                <div>
+                                    <input type="text"
+                                           id="author-input-${person.docId}"
+                                           maxlength="40"
+                                           value="${escapeHTML(state.draftAuthors[person.docId] || '')}"
+                                           placeholder="Твой ник (необязательно, по умолчанию: Аноним)"
+                                           class="w-full bg-[#111113] border border-white/15 focus:border-white rounded-xl px-3.5 py-2 text-xs sm:text-sm text-white placeholder-neutral-500 outline-none transition-colors">
+                                </div>
+                                <div>
+                                    <textarea id="text-input-${person.docId}"
+                                              rows="3"
+                                              maxlength="500"
+                                              required
+                                              placeholder="Напиши мнение — оно сразу появится в сети у всех посетителей..."
+                                              class="w-full bg-[#111113] border border-white/15 focus:border-white rounded-xl px-3.5 py-2 text-xs sm:text-sm text-white placeholder-neutral-500 outline-none transition-colors resize-none">${escapeHTML(state.draftTexts[person.docId] || '')}</textarea>
+                                </div>
+                                <div class="flex items-center justify-end gap-2">
+                                    <button type="button"
+                                            onclick="toggleInlineOpinionForm('${person.docId}')"
+                                            class="px-3.5 py-2 rounded-xl border border-white/15 hover:border-white/40 text-xs font-mono text-neutral-300 transition-colors">
+                                        Отмена
+                                    </button>
+                                    <button type="submit"
+                                            id="submit-btn-${person.docId}"
+                                            class="px-4 py-2 rounded-xl bg-white text-black hover:bg-neutral-200 text-xs font-mono font-semibold transition-colors inline-flex items-center gap-2">
+                                        <i class="fa-solid fa-paper-plane"></i>
+                                        <span>Отправить</span>
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+
+                        <!-- Лента всех мнений о персоне -->
+                        <div class="pt-1">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="font-mono text-[11px] uppercase tracking-wider text-neutral-400">
+                                    Мнения о персоне (<span id="opinion-count-${person.docId}">${opinionsCount}</span>)
+                                </span>
+                            </div>
+                            <div id="opinions-container-${person.docId}">
+                                ${renderOpinionsListHTML(person.docId)}
+                            </div>
+                        </div>
+                    </article>
+                `;
+            }).join('');
+
+            updateGlobalCounters();
+        }
+
+        /**
+         * Открыть/закрыть встроенную форму мнения
+         */
+        window.toggleInlineOpinionForm = function(docId) {
+            state.openForms[docId] = !state.openForms[docId];
+            renderPersons();
+            if (state.openForms[docId]) {
+                const textarea = document.getElementById(`text-input-${docId}`);
+                if (textarea) setTimeout(() => textarea.focus(), 40);
+            }
+        };
+
+        /**
+         * Отправка нового мнения в корневую коллекцию Firestore `cg_conf_opinions`
+         */
+        window.submitInlineOpinion = async function(event, docId) {
+            event.preventDefault();
+
+            if (!db || !currentUser) {
+                showToast('Подожди секунду, идёт подключение к облаку...', true);
+                return;
+            }
+
+            const authorInput = document.getElementById(`author-input-${docId}`);
+            const textInput = document.getElementById(`text-input-${docId}`);
+            const submitBtn = document.getElementById(`submit-btn-${docId}`);
+
+            const authorRaw = authorInput ? authorInput.value.trim() : '';
+            const textRaw = textInput ? textInput.value.trim() : '';
+
+            if (!textRaw) {
+                showToast('Напиши текст мнения!', true);
+                return;
+            }
+
+            if (submitBtn) {
+                submitBtn.disabled = true;
+                submitBtn.classList.add('opacity-60');
+            }
+
+            try {
+                const opinionsRef = collection(db, 'cg_conf_opinions');
+                await addDoc(opinionsRef, {
+                    personaId: docId,
+                    author: authorRaw || 'Аноним',
+                    text: textRaw,
+                    createdAt: Date.now(),
+                    likes: 0
+                });
+
+                state.draftAuthors[docId] = '';
+                state.draftTexts[docId] = '';
+                state.openForms[docId] = false;
+                renderPersons();
+                showToast('Мнение опубликовано в сети для всех!');
+            } catch (err) {
+                console.error('Ошибка публикации мнения:', err);
+                showToast('Ошибка отправки: проверь правила Firestore.', true);
+            } finally {
+                if (submitBtn) {
+                    submitBtn.disabled = false;
+                    submitBtn.classList.remove('opacity-60');
+                }
+            }
+        };
+
+        /**
+         * Лайк конкретного мнения с анти-спамом и инкрементом в Firestore
+         */
+        window.handleOpinionLike = async function(opinionId) {
+            if (!db || !currentUser) {
+                showToast('Подожди секунду, идёт подключение к облаку...', true);
+                return;
+            }
+
+            if (state.likedOpinions[opinionId]) {
+                showToast('Ты уже поддержал это мнение!');
+                return;
+            }
+
+            state.likedOpinions[opinionId] = true;
+            saveFlagMap(STORAGE_LIKED_OPINIONS, state.likedOpinions);
+            renderPersons();
+
+            try {
+                const opDocRef = doc(db, 'cg_conf_opinions', opinionId);
+                await updateDoc(opDocRef, {
+                    likes: increment(1)
+                });
+            } catch (err) {
+                console.error('Ошибка лайка мнения:', err);
+                delete state.likedOpinions[opinionId];
+                saveFlagMap(STORAGE_LIKED_OPINIONS, state.likedOpinions);
+                renderPersons();
+                showToast('Не удалось поставить лайк мнению.', true);
+            }
+        };
+
+        /**
+         * Нажатие на "Крутость": защита от спама (1 лайк на персону) + атомарный increment(1) в `cg_conf_personas/{docId}`
+         */
+        window.handleLike = async function(docId, btnElement) {
+            if (!db || !currentUser) {
+                showToast('Подожди секунду, идёт подключение к облаку...', true);
+                return;
+            }
+
+            if (state.likedPersonas[docId]) {
+                showToast('Ты уже оценил крутость этой персоны!');
+                return;
+            }
+
+            // Фиксируем флаг анти-спама локально и оптимистично обновляем UI
+            state.likedPersonas[docId] = true;
+            saveFlagMap(STORAGE_LIKED_PERSONAS, state.likedPersonas);
+            state.likes[docId] = (state.likes[docId] || 0) + 1;
+
+            const countBadge = document.getElementById(`like-count-${docId}`);
+            if (countBadge) {
+                countBadge.textContent = state.likes[docId];
+            }
+            if (btnElement) {
+                btnElement.classList.remove('border-white/20', 'bg-[#09090b]', 'text-white');
+                btnElement.classList.add('border-white', 'bg-white', 'text-black');
+            }
+            updateGlobalCounters();
+
+            // Всплывающий индикатор "+1 КРУТОСТЬ"
+            if (btnElement && btnElement.parentElement) {
+                const floater = document.createElement('span');
+                floater.textContent = '+1 КРУТОСТЬ';
+                floater.className = 'float-plus absolute -top-6 left-1/2 font-mono text-[11px] font-bold text-white bg-[#09090b] border border-white/30 px-2 py-0.5 rounded-md whitespace-nowrap';
+                btnElement.parentElement.appendChild(floater);
+                setTimeout(() => floater.remove(), 760);
+            }
+
+            try {
+                const personaDocRef = doc(db, 'cg_conf_personas', docId);
+                await setDoc(personaDocRef, {
+                    likes: increment(1)
+                }, { merge: true });
+                showToast('Крутость сохранена в облаке!');
+            } catch (err) {
+                console.error('Ошибка сохранения лайка:', err);
+                delete state.likedPersonas[docId];
+                saveFlagMap(STORAGE_LIKED_PERSONAS, state.likedPersonas);
+                state.likes[docId] = Math.max(0, (state.likes[docId] || 1) - 1);
+                renderPersons();
+                showToast('Не удалось сохранить лайк в сети.', true);
+            }
+        };
+
+        /**
+         * Инициализация Firebase и подписка в реальном времени (onSnapshot) на корневые коллекции
+         */
+        async function initFirebaseSync() {
+            try {
+                const app = initializeApp(firebaseConfig);
+                auth = getAuth(app);
+                db = getFirestore(app);
+
+                // Анонимная авторизация перед запросами к Firestore
+                const cred = await signInAnonymously(auth);
+                currentUser = cred.user;
+
+                if (!currentUser) {
+                    setSyncStatus('offline', 'Ошибка авторизации гостя');
+                    return;
+                }
+
+                // 1. Подписка в реальном времени на коллекцию `cg_conf_personas` (счётчики крутости)
+                const personasColRef = collection(db, 'cg_conf_personas');
+                onSnapshot(personasColRef, (snapshot) => {
+                    const updatedLikes = {};
+                    PERSONS_DATA.forEach(p => { updatedLikes[p.docId] = 0; });
+
+                    snapshot.forEach(docSnap => {
+                        const data = docSnap.data();
+                        if (Object.prototype.hasOwnProperty.call(updatedLikes, docSnap.id)) {
+                            updatedLikes[docSnap.id] = Number(data.likes) || 0;
+                        }
+                    });
+
+                    state.likes = updatedLikes;
+                    state.isSyncing = false;
+                    setSyncStatus('online', 'Онлайн-база подключена');
+                    renderPersons();
+                }, (error) => {
+                    console.error('Ошибка чтения cg_conf_personas:', error);
+                    state.isSyncing = false;
+                    setSyncStatus('offline', `Ошибка базы (${error.code || 'нет доступа'})`);
+                    renderPersons();
+                });
+
+                // 2. Подписка в реальном времени на коллекцию `cg_conf_opinions` (мнения)
+                const opinionsColRef = collection(db, 'cg_conf_opinions');
+                onSnapshot(opinionsColRef, (snapshot) => {
+                    const grouped = {};
+                    PERSONS_DATA.forEach(p => { grouped[p.docId] = []; });
+
+                    snapshot.forEach(docSnap => {
+                        const data = docSnap.data();
+                        const pId = data.personaId;
+                        if (grouped[pId]) {
+                            grouped[pId].push({
+                                id: docSnap.id,
+                                author: data.author || 'Аноним',
+                                text: data.text || '',
+                                createdAt: data.createdAt || 0,
+                                likes: Number(data.likes) || 0
+                            });
+                        }
+                    });
+
+                    // Сортируем мнения от новых к старым
+                    Object.keys(grouped).forEach(pId => {
+                        grouped[pId].sort((a, b) => (Number(b.createdAt) || 0) - (Number(a.createdAt) || 0));
+                    });
+
+                    state.opinions = grouped;
+                    state.isSyncing = false;
+                    setSyncStatus('online', 'Онлайн-база подключена');
+                    renderPersons();
+                }, (error) => {
+                    console.error('Ошибка чтения cg_conf_opinions:', error);
+                    state.isSyncing = false;
+                    setSyncStatus('offline', `Ошибка базы (${error.code || 'нет доступа'})`);
+                    renderPersons();
+                });
+
+            } catch (err) {
+                console.error('Ошибка инициализации Firebase:', err);
+                state.isSyncing = false;
+                setSyncStatus('offline', `Ошибка подключения (${err.code || 'сети'})`);
+                renderPersons();
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            renderPersons();
+            initFirebaseSync();
+
+            const searchInput = document.getElementById('searchInput');
+            searchInput.addEventListener('input', (e) => {
+                state.searchQuery = e.target.value;
+                renderPersons();
+            });
+
+            document.getElementById('resetSearchBtn').addEventListener('click', () => {
+                state.searchQuery = '';
+                searchInput.value = '';
+                renderPersons();
+            });
+        });
+    </script>
+</body>
+</html>
